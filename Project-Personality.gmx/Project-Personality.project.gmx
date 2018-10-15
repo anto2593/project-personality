@@ -5,11 +5,18 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\sprite0</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\obj_display_manager</object>
+    <object>objects\object1</object>
+  </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\rm_init</room>
+    <room>rooms\room1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
