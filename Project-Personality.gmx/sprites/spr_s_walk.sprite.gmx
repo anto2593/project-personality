@@ -2,15 +2,15 @@
 <sprite>
   <type>0</type>
   <xorig>16</xorig>
-  <yorigin>32</yorigin>
+  <yorigin>20</yorigin>
   <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>0</bbox_left>
-  <bbox_right>31</bbox_right>
-  <bbox_top>1</bbox_top>
-  <bbox_bottom>31</bbox_bottom>
+  <bbox_left>7</bbox_left>
+  <bbox_right>24</bbox_right>
+  <bbox_top>11</bbox_top>
+  <bbox_bottom>19</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -26,5 +26,14 @@
     <frame index="3">images\spr_s_walk_3.png</frame>
     <frame index="4">images\spr_s_walk_4.png</frame>
     <frame index="5">images\spr_s_walk_5.png</frame>
+    <frame index="6">images\spr_s_walk_6.png</frame>
+    <frame index="7">images\spr_s_walk_7.png</frame>
+    <frame index="8">images\spr_s_walk_8.png</frame>
+    <frame index="9">images\spr_s_walk_9.png</frame>
+    <frame index="10">images\spr_s_walk_10.png</frame>
+    <frame index="11">images\spr_s_walk_11.png</frame>
+    <frame index="12">images\spr_s_walk_12.png</frame>
+    <frame index="13">images\spr_s_walk_13.png</frame>
+    <frame index="14">images\spr_s_walk_14.png</frame>
   </frames>
 </sprite>
