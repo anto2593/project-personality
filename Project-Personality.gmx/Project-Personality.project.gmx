@@ -6,13 +6,43 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprite0</sprite>
+    <sprite>sprites\spr_wall</sprite>
+    <sprites name="slime">
+      <sprite>sprites\TEMPLATESLIME</sprite>
+      <sprite>sprites\spr_s_landing</sprite>
+      <sprite>sprites\spr_s_idle</sprite>
+      <sprite>sprites\spr_s_walk</sprite>
+      <sprite>sprites\spr_s_sticking</sprite>
+      <sprite>sprites\spr_s_falling</sprite>
+      <sprite>sprites\spr_s_falling_side</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="slime states">
+      <script>scripts\scr_s_walking.gml</script>
+      <script>scripts\scr_s_sticking.gml</script>
+      <script>scripts\scr_s_landing.gml</script>
+      <script>scripts\scr_s_idle.gml</script>
+      <script>scripts\scr_s_falling.gml</script>
+    </scripts>
+    <scripts name="slime state transitions">
+      <script>scripts\scr_set_s_walking.gml</script>
+      <script>scripts\scr_set_s_sticking.gml</script>
+      <script>scripts\scr_set_s_landing.gml</script>
+      <script>scripts\scr_set_s_idle.gml</script>
+      <script>scripts\scr_set_s_falling.gml</script>
+      <script>scripts\scr_s_jump.gml</script>
+    </scripts>
+    <script>scripts\scr_s_adjust_fall_direction.gml</script>
+    <script>scripts\scr_s_movement.gml</script>
+  </scripts>
   <objects name="objects">
+    <object>objects\obj_wall</object>
+    <object>objects\obj_slime</object>
     <object>objects\obj_display_manager</object>
-    <object>objects\object1</object>
+    <object>objects\obj_control</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
