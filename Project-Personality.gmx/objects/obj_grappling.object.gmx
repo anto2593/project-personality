@@ -77,7 +77,8 @@ length += spd;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_line(obj_slime.x,obj_slime.y,x,y)
+            <string>draw_set_colour(make_colour_rgb(105, 192, 160))
+draw_line(obj_slime.x,obj_slime.y,x,y)
 </string>
           </argument>
         </arguments>
