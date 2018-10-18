@@ -8,7 +8,7 @@ if (keyboard_check(transform))
 if (mouse_check_button_pressed(mb_right) && instance_exists(obj_flower))
     {
     var flw = obj_flower;
-    if (point_distance(x,y,flw.x,flw.y) < 10 && point_distance(mouse_x,mouse_y,flw.x,flw.y) < 10)
+    if (point_distance(x+13*sign(image_xscale),y-22,flw.x,flw.y) < 10 && point_distance(mouse_x,mouse_y,flw.x,flw.y-flw.sprite_height/2) < 10)
         {
         state = scr_h_pickup;
         sprite_index = spr_h_pickup

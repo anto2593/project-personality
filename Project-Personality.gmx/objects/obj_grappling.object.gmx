@@ -156,7 +156,7 @@ if (extending)
             x_onitem = x-item.x
             y_onitem = y-item.y*/
             x_onitem = 0
-            y_onitem = -item.sprite_height
+            y_onitem = -item.sprite_height/2
             extending = false;
             }
         else

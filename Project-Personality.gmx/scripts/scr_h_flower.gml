@@ -9,7 +9,7 @@ if (mouse_check_button_pressed(mb_right) && instance_exists(obj_flower_spot))
     if instance_exists(spot)
         {
         show_debug_message("lol")
-        if (point_distance(x,y,spot.x,spot.y) < 10)
+        if (point_distance(x+13*sign(image_xscale),y-22,spot.x,spot.y) < 10)
             {
             sprite_index = spr_h_putdown
             image_speed = imgs_pickup
