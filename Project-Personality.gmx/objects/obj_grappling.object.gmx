@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///initiate
-spd = 18;
+spd = 16;
 extending = true;
 slimeball_width = 3;
 
@@ -85,7 +85,7 @@ if (!initiated)
             <string>///update line coordinates
 slime_x = obj_slime.x
 slime_y = obj_slime.y-offset
-var length = distance_to_point(slime_x, slime_y);
+length = distance_to_point(slime_x, slime_y);
 var string_angle = -degtorad(point_direction(slime_x, slime_y, x, y));
 
 
@@ -121,11 +121,12 @@ line_part_width[2] = 2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///extend
+            <string>///extend and grab
 
 if (extending)
     {
     if (position_meeting(x+x_velocity, y+y_velocity, obj_wall))
+        //grab wall?
         {
         var dy = sin(angle);
         var dx = cos(angle);
@@ -136,11 +137,42 @@ if (extending)
         x = round(x+x_velocity+dx*slimeball_width/2-1);
         y = round(y+y_velocity+dy*slimeball_width/2-1);
         extending = false;
+        item = noone;
         }
     else
         {
-        x += x_velocity
-        y += y_velocity
+        //grab item?
+        item = instance_position(x+x_velocity, y+y_velocity, obj_object)
+        if (instance_exists(item))
+            {
+            /*var dy = sin(angle);
+            var dx = cos(angle);
+            while (position_meeting(x+x_velocity, y+y_velocity, item)) {
+                x_velocity -= dx;
+                y_velocity -= dy;
+            }
+            x = round(x+x_velocity+dx*slimeball_width/2-1);
+            y = round(y+y_velocity+dy*slimeball_width/2-1);
+            x_onitem = x-item.x
+            y_onitem = y-item.y*/
+            x_onitem = 0
+            y_onitem = -item.sprite_height
+            extending = false;
+            }
+        else
+            {
+            //keep extending
+            x += x_velocity
+            y += y_velocity
+            }
+        }
+    }
+else
+    {
+    if (instance_exists(item))
+        {
+        x = item.x+x_onitem;
+        y = item.y+y_onitem;
         }
     }
 </string>

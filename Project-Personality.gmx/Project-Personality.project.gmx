@@ -17,39 +17,70 @@
       <sprite>sprites\spr_s_falling_side</sprite>
       <sprite>sprites\mask_slime</sprite>
     </sprites>
+    <sprite>sprites\spr_transform</sprite>
+    <sprites name="human">
+      <sprite>sprites\spr_h_idle</sprite>
+      <sprite>sprites\spr_h_walk</sprite>
+      <sprite>sprites\spr_h_pickup</sprite>
+      <sprite>sprites\spr_h_putdown</sprite>
+      <sprite>sprites\spr_h_fidle</sprite>
+      <sprite>sprites\spr_h_fwalk</sprite>
+    </sprites>
+    <sprite>sprites\spr_object</sprite>
+    <sprite>sprites\spr_flower</sprite>
+    <sprite>sprites\spr_flower_spot</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="slime states">
-      <script>scripts\scr_s_walking.gml</script>
-      <script>scripts\scr_s_sticking.gml</script>
-      <script>scripts\scr_s_landing.gml</script>
-      <script>scripts\scr_s_idle.gml</script>
-      <script>scripts\scr_s_falling.gml</script>
+    <scripts name="slime">
+      <scripts name="slime states">
+        <script>scripts\scr_s_walking.gml</script>
+        <script>scripts\scr_s_sticking.gml</script>
+        <script>scripts\scr_s_landing.gml</script>
+        <script>scripts\scr_s_idle.gml</script>
+        <script>scripts\scr_s_falling.gml</script>
+      </scripts>
+      <scripts name="slime state transitions">
+        <script>scripts\scr_set_s_walking.gml</script>
+        <script>scripts\scr_set_s_sticking.gml</script>
+        <script>scripts\scr_set_s_landing.gml</script>
+        <script>scripts\scr_set_s_idle.gml</script>
+        <script>scripts\scr_set_s_falling.gml</script>
+        <script>scripts\scr_s_jump.gml</script>
+      </scripts>
+      <script>scripts\scr_s_adjust_fall_direction.gml</script>
+      <script>scripts\scr_s_movement.gml</script>
+      <script>scripts\scr_collision.gml</script>
     </scripts>
-    <scripts name="slime state transitions">
-      <script>scripts\scr_set_s_walking.gml</script>
-      <script>scripts\scr_set_s_sticking.gml</script>
-      <script>scripts\scr_set_s_landing.gml</script>
-      <script>scripts\scr_set_s_idle.gml</script>
-      <script>scripts\scr_set_s_falling.gml</script>
-      <script>scripts\scr_s_jump.gml</script>
+    <scripts name="human states">
+      <script>scripts\scr_h_pickup.gml</script>
+      <script>scripts\scr_h_emptyhanded.gml</script>
+      <script>scripts\scr_h_movement.gml</script>
+      <script>scripts\scr_h_flower.gml</script>
     </scripts>
-    <script>scripts\scr_s_adjust_fall_direction.gml</script>
-    <script>scripts\scr_s_movement.gml</script>
-    <script>scripts\scr_s_collision.gml</script>
+    <script>scripts\scr_transform_sh.gml</script>
+    <script>scripts\scr_transform_hs.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_wall</object>
-    <object>objects\obj_slime</object>
     <object>objects\obj_display_manager</object>
     <object>objects\obj_control</object>
-    <object>objects\obj_grappling</object>
+    <objects name="player">
+      <object>objects\obj_slime</object>
+      <object>objects\obj_human</object>
+      <object>objects\obj_grappling</object>
+      <object>objects\obj_transforming</object>
+      <object>objects\obj_player</object>
+    </objects>
+    <object>objects\obj_object</object>
+    <object>objects\obj_flower</object>
+    <object>objects\obj_flower_spot</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
     <room>rooms\room1</room>
+    <room>rooms\room2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

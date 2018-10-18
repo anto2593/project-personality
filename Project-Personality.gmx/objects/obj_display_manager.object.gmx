@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//display_set_windows_alternate_sync(true);
+            <string>///display_reset
 display_reset(0, true)
 </string>
           </argument>
@@ -47,7 +47,7 @@ display_reset(0, true)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///calculating resolution and init. variables lol
+            <string>///calculating resolution and init. views and things
 ideal_height = 250;
 ideal_width = 0;
 
@@ -87,7 +87,6 @@ alarm[0] = 1;
 
 bb =(ideal_width-120)/2
 
-
 room_goto_next();
 </string>
           </argument>
@@ -113,6 +112,31 @@ room_goto_next();
             <kind>1</kind>
             <string>///centering the window, 1 step delay (necessary)
 window_center();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///follow player
+view_xview[1] = obj_player.x - view_wview[1]/2
+view_yview[1] = obj_player.y - view_hview[1]/2
 </string>
           </argument>
         </arguments>
@@ -153,29 +177,6 @@ if (keyboard_check_pressed(ord("X"))) {
     alarm[0] = 1;
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///follow player
-view_xview[1] = obj_slime.x - view_wview[1]/2
-view_yview[1] = obj_slime.y - view_hview[1]/2
 </string>
           </argument>
         </arguments>

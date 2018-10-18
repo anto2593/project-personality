@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_player</parentName>
   <maskName>mask_slime</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -28,7 +28,6 @@
             <string>///init
 
 //constants
-grav = 0.2;
 jump_power = 5;
 accel = 0.4;
 ground_friction = 1-0.2;
@@ -36,6 +35,7 @@ air_friction = 1-0.05;
 max_spd = 1.5;
 max_spd_air = 1;
 grappling_power = 0.5;
+grappling_crittical_lth = 15;
 
 
 //image_speeds
@@ -52,6 +52,7 @@ right = ord("D");
 left = ord("A");
 jump = ord("W");
 down = ord("S");
+transform = vk_space;
 
 //Check for arrow keys at start
 arrow = "neither";
@@ -108,10 +109,10 @@ if (keyboard_check_released(left)&amp;&amp; !(arrow="right")){
 }
 
 //gravity
-if (state != scr_s_sticking) y_velocity += grav;
+if (state != scr_s_sticking) y_velocity += global.grav;
 
 //collision
-scr_s_collision();
+scr_collision();
 </string>
           </argument>
         </arguments>
@@ -144,12 +145,23 @@ else if (instance_exists(grappling))
     {
     //destroy the grappling slime
     if mouse_check_button_released(mb_right) instance_destroy(grappling);
-    else if !grappling.extending
+    else if grappling_crittical_lth &lt; grappling.length &amp;&amp; !grappling.extending
         {
-        //apply the grappling slime
+        //apply the grappling slime effect
         var angle = -degtorad(point_direction(x, y-sprite_get_height(mask_index)/3, grappling.x, grappling.y));
-        x_velocity += cos(angle)*grappling_power;
-        y_velocity += sin(angle)*grappling_power;
+        if !instance_exists(grappling.item)
+            {
+            x_velocity += cos(angle)*grappling_power;
+            y_velocity += sin(angle)*grappling_power;
+            }
+        else
+            {
+            var item = grappling.item;
+            x_velocity += cos(angle)*grappling_power*1/4;
+            y_velocity += sin(angle)*grappling_power*1/4;
+            item.x_velocity -= cos(angle)*grappling_power;
+            item.y_velocity -= sin(angle)*grappling_power;
+            }
         }
     }
 </string>
@@ -196,9 +208,9 @@ script_execute(state);
             <kind>1</kind>
             <string>///collision check and position update
 
-scr_s_collision();
+scr_collision();
 
-x = round(x+x_velocity);
+x = round(x+x_velocity); //rounding makes smoother when you can only move an integer amount of pixels
 y = round(y+y_velocity);
 </string>
           </argument>

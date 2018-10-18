@@ -7,7 +7,7 @@ if (keyboard_check_pressed(jump)) {
     scr_s_jump();
 }
 //Fall
-if (abs(y_velocity) > grav) {
+if (abs(y_velocity) > global.grav) {
     scr_set_s_falling();
 }
 
