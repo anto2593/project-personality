@@ -48,7 +48,7 @@ display_reset(0, true)
           <argument>
             <kind>1</kind>
             <string>///calculating resolution and init. variables lol
-ideal_height = 144;
+ideal_height = 250;
 ideal_width = 0;
 
 aspect_ratio = display_get_width()/display_get_height();
