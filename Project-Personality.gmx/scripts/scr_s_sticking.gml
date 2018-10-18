@@ -1,5 +1,4 @@
 ///sticking to a wall
-
 //determine if pushing off or in or not
 var pushing_off; var pushing_in;
 if (arrow == "neither")

@@ -26,9 +26,79 @@
           <argument>
             <kind>1</kind>
             <string>///initiate
-angle = degtorad(point_direction(x, y, mouse_x, mouse_y));
-length = 0;
-spd = 5;
+spd = 8;
+extending = true;
+slimeball_width = 3;
+
+initiated = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///finish initiation
+
+if (!initiated)
+    {
+    angle = -degtorad(point_direction(x, y, mouse_x, mouse_y));
+    x_velocity = cos(angle)*spd;
+    y_velocity = sin(angle)*spd;
+    initiated = true;
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///update line coordinates
+slime_x = obj_slime.x
+slime_y = obj_slime.y-offset
+var length = distance_to_point(slime_x, slime_y);
+var string_angle = -degtorad(point_direction(slime_x, slime_y, x, y));
+
+
+line_point[0,0] = slime_x + cos(string_angle)*length*1/5
+line_point[0,1] = slime_y + sin(string_angle)*length*1/5
+line_part_width[0] = 2
+
+line_point[1,0] = slime_x + cos(string_angle)*length*4/5
+line_point[1,1] = slime_y + sin(string_angle)*length*4/5
+line_part_width[1] = 1
+
+line_part_width[2] = 2
+
 </string>
           </argument>
         </arguments>
@@ -52,9 +122,27 @@ spd = 5;
           <argument>
             <kind>1</kind>
             <string>///extend
-x += cos(angle)*spd;
-y += sin(angle)*spd;
-length += spd;
+
+if (extending)
+    {
+    if (position_meeting(x+x_velocity, y+y_velocity, obj_wall))
+        {
+        var dy = sin(angle);
+        var dx = cos(angle);
+        while (position_meeting(x+x_velocity, y+y_velocity, obj_wall)) {
+            x_velocity -= dx;
+            y_velocity -= dy;
+        }
+        x = round(x+x_velocity+dx*slimeball_width/2-1);
+        y = round(y+y_velocity+dy*slimeball_width/2-1);
+        extending = false;
+        }
+    else
+        {
+        x += x_velocity
+        y += y_velocity
+        }
+    }
 </string>
           </argument>
         </arguments>
@@ -77,8 +165,17 @@ length += spd;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_colour(make_colour_rgb(105, 192, 160))
-draw_line(obj_slime.x,obj_slime.y,x,y)
+            <string>
+
+draw_set_colour(make_colour_rgb(105, 192, 160));
+draw_circle(x, y, slimeball_width, false);
+
+
+draw_line_width(slime_x, slime_y, line_point[0,0], line_point[0,1], line_part_width[0]);
+draw_line_width(line_point[0,0], line_point[0,1], line_point[1,0], line_point[1,1], line_part_width[1]);
+draw_line_width(line_point[1,0], line_point[1,1], x, y, line_part_width[2]);
+
+
 </string>
           </argument>
         </arguments>

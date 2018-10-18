@@ -15,6 +15,7 @@
       <sprite>sprites\spr_s_sticking</sprite>
       <sprite>sprites\spr_s_falling</sprite>
       <sprite>sprites\spr_s_falling_side</sprite>
+      <sprite>sprites\mask_slime</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -37,6 +38,7 @@
     </scripts>
     <script>scripts\scr_s_adjust_fall_direction.gml</script>
     <script>scripts\scr_s_movement.gml</script>
+    <script>scripts\scr_s_collision.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_wall</object>
