@@ -28,21 +28,21 @@
             <string>///init
 
 //constants
-grav = 0.28;
-jump_power = 7;
+grav = 0.2;
+jump_power = 5;
 accel = 0.4;
-ground_friction = 1-0.15;
+ground_friction = 1-0.2;
 air_friction = 1-0.05;
 max_spd = 1.5;
 max_spd_air = 1;
-grappling_power = 0.6;
+grappling_power = 0.5;
 
 
 //image_speeds
 imgs_idle = 1/5;
 imgs_walking = 1/2;
-imgs_sticking = 1/10;
 imgs_pre_sticking = 1/5;
+imgs_sticking = 1/7;
 imgs_falling = 0;
 //imgs_jumping = 1/5;
 imgs_landing = 1/5;

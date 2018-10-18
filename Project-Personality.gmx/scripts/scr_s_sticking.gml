@@ -30,14 +30,18 @@ if (keyboard_check_pressed(jump) && !pushing_in)
     exit;
     }
 
-//gravitate towards idle image, but fall off if input says so
-if (floor(image_index) >= 3)
+//gravitate towards idle image
+if (floor(image_index) >= 2)
     {
     if (pushing_off) image_speed = imgs_sticking;
     else
         {
-        if (floor(image_index) = 3)image_speed = 0;
+        if (floor(image_index) = 2) image_speed = 0;
         else image_speed = -imgs_sticking;
         }
     }
+    
+//stick firmly
+x_velocity = 0;
+y_velocity = 0;
 

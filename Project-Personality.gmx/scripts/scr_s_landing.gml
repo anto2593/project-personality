@@ -8,7 +8,6 @@ if (keyboard_check_pressed(jump)) {
 }
 //Fall
 if (abs(y_velocity) > grav) {
-    show_debug_message(y_velocity)
     scr_set_s_falling();
 }
 
