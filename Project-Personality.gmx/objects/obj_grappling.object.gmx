@@ -145,6 +145,12 @@ if (extending)
         item = instance_position(x+x_velocity, y+y_velocity, obj_object)
         if (instance_exists(item))
             {
+            if (item.object_index == obj_flower)
+                {
+                var new_item = instance_create(item.x,item.y,obj_flower_slimy)
+                instance_destroy(item)
+                item = new_item;
+                }
             /*var dy = sin(angle);
             var dx = cos(angle);
             while (position_meeting(x+x_velocity, y+y_velocity, item)) {

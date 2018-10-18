@@ -13,7 +13,7 @@ if (mouse_check_button_pressed(mb_right) && instance_exists(obj_flower))
         state = scr_h_pickup;
         sprite_index = spr_h_pickup
         image_speed = imgs_pickup;
-        flw.alarm[0] = 3/image_speed;
+        flw.alarm[0] = 12/image_speed;
         exit;
         }
     }

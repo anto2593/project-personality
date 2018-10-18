@@ -1,6 +1,3 @@
-
-
-show_debug_message("helo?")
 //put down the flower
 if (mouse_check_button_pressed(mb_right) && instance_exists(obj_flower_spot))
     {
@@ -11,9 +8,10 @@ if (mouse_check_button_pressed(mb_right) && instance_exists(obj_flower_spot))
         show_debug_message("lol")
         if (point_distance(x+13*sign(image_xscale),y-22,spot.x,spot.y) < 10)
             {
+            state = scr_h_pickup;
             sprite_index = spr_h_putdown
             image_speed = imgs_pickup
-            spot.alarm[0] = 3/image_speed;
+            spot.alarm[0] = 15/image_speed;
             exit;
             }
         }

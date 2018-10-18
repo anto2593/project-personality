@@ -33,7 +33,7 @@ ground_friction = 1-0.4;
 max_spd = 1;
 
 //image_speeds
-imgs_walk = 1/5;
+imgs_walk = 1/10;
 imgs_pickup = 1/5;
 
 //controls
